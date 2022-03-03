@@ -1,6 +1,7 @@
 from flask_restful import Resource
 import psycopg2
 from psycopg2 import Error
+from flask import jsonify, make_response, abort
 
 
 def create_tables():
@@ -43,3 +44,6 @@ class Psql(Resource):
             return 200
 
 
+class Admin_users(Resource):
+    def get(self):        
+        return make_response(jsonify({'body': 'You are an admin'}), 200)
