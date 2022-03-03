@@ -7,7 +7,8 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'this-really-needs-to-be-changed'
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:0000@localhost/album_cover_db'
 
 
 class ProductionConfig(Config):
@@ -22,7 +23,6 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
-    DATABASE_URI = 'postgresql://postgres:0000@localhost/album_cover_db'
 
 
 class TestingConfig(Config):
