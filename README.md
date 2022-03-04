@@ -35,4 +35,7 @@ Testing is completed with Pytest library. To run tests execute:
 
 Built by Northcoders, collaborators include:
 
--[Eden O'Brien] (github.com/eobr) -[Salah Shihaibi] (github.com/salah-shihaibi) -[Ed Heywood-Everett] (github.com/edheyev) -[Elliot Ferryman-Avery] (github.com/TermMC)
+- [Eden O'Brien](github.com/eobr)
+- [Salah Shihaibi](github.com/salah-shihaibi)
+- [Ed Heywood-Everett](github.com/edheyev)
+- [Elliot Ferryman-Avery](github.com/TermMC)
