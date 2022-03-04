@@ -1,1 +1,0 @@
-psql -f ./db_tests/db_setup.sql

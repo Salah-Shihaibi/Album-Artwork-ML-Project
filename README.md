@@ -1,4 +1,4 @@
-# _ML Album Artwork Genre Predictor_
+# INTRODUCING XAV BRUGGEN'S _ML Album Artwork Genre Predictor_
 
 This is a Python project to predict the genre of an album based on the cover art.
 
@@ -14,28 +14,30 @@ Start a virtual environment with:
 
 Install required libraries by running the command below:
 
-- `bash ./install-libraries`
+- `bash ./install_libraries`
 
 #### _Installation Requirements_
 
-- Python >= 3.10.2
-- Flask >= 2.0.3
-- Pytest >= 7.0.1
+- python >= 3.10.2
+- flask >= 2.0.3
+- pytest >= 7.0.1
+- flask_restful >= 0.3.9
+- psycopg2 >= 2.9.3
 
 To run a local server run the following command:
-`bash ./start-flask.sh`
+`bash ./start_flask.sh`
 
 ## _Testing_
 
 Testing is completed with Pytest library. To run tests execute:
 
-- `bash ./run-test.sh`
+- `bash ./run_test.sh`
 
 ### _Credits_
 
-Built by Northcoders, collaborators include:
+Built by [XAV BRUGGEN](https://github.com/gravybru), collaborators include:
 
-- [Eden O'Brien](github.com/eobr)
-- [Salah Shihaibi](github.com/salah-shihaibi)
-- [Ed Heywood-Everett](github.com/edheyev)
-- [Elliot Ferryman-Avery](github.com/TermMC)
+- [Eden O'Brien](https://github.com/eobr)
+- [Salah Shihaibi](https://github.com/salah-shihaibi)
+- [Ed Heywood-Everett](https://github.com/edheyev)
+- [Elliot Ferryman-Avery](https://github.com/TermMC)

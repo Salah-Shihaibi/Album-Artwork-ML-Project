@@ -1,4 +1,4 @@
-def test_status(client):
+def test_ping(client):
     response = client.get('/')
     assert response.status == '200 OK'
 

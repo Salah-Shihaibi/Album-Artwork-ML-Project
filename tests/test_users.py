@@ -25,6 +25,15 @@ def test_users_register(client):
     assert response.status_code == 200
     assert response.json["user"] == user
 
+    db = connect()
+    cursor = db.cursor()
+    query = '''SELECT * FROM users'''
+    cursor.execute(query)
+    users = cursor.fetchall()
+    cursor.close()
+    db.close()
+    assert len(users) == 9
+
 def test_users_login(client):
     user = {
     "password": "wEShNQ2J2I",

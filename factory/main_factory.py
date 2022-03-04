@@ -10,7 +10,6 @@ def create_app():
     api.add_resource(Ping, "/")
     api.add_resource(Register, "/auth/register")
     api.add_resource(Login, "/auth/login")
-    # api.add_resource(Admin_users, "/admin")
 
     return app
 
