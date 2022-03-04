@@ -1,3 +1,3 @@
-python -m pytest -k admin -v -s 
+python -m pytest -k users_ -v -s 
 
 #pytest -m

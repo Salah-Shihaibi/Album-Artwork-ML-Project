@@ -1,7 +1,7 @@
-from connection import connect
+from db.connection import connect
 import psycopg2
 from psycopg2 import Error
-from data.user_data import users
+from db.data.user_data import users
 
 connection = connect()
 def drop_table(table):
@@ -53,7 +53,9 @@ def insert_users_data():
     finally:
         if connection:
             cursor.close()
-            
+
+
+#should we now delete this function?            
 def select_users_data():
     try:
         cursor = connection.cursor()
@@ -61,7 +63,6 @@ def select_users_data():
         insert_query = """ SELECT * FROM users """
         cursor.execute(insert_query)
         x = cursor.fetchall()
-        print(x)
         connection.commit()
         print("users retrieved successfully")
     except (Exception, psycopg2.Error) as error:
@@ -69,10 +70,11 @@ def select_users_data():
     finally:
         if connection:
             cursor.close()            
-# for user in users:
-#     insert_users_data(user)
 
-drop_table("users")
-create_user_table()
-insert_users_data()
-select_users_data()
+
+def seed():
+    drop_table("users")
+    create_user_table()
+    insert_users_data()
+
+

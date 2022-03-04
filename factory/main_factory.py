@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from controllers.user_controller import Users, Psql, Admin_users
+from controllers.user_controller import Register, Admin_users, Login
 from config import DevelopmentConfig
 # from flask_sqlalchemy import SQLAlchemy
 from factory.flask_setup import setup_api
@@ -14,8 +14,8 @@ def create_app():
     app = Flask(__name__)
     api = Api(app)
      
-    api.add_resource(Users, "/")
-    api.add_resource(Psql, "/psql")
+    api.add_resource(Register, "/auth/register")
+    api.add_resource(Login, "/auth/login")
     api.add_resource(Admin_users, "/admin")
 
     return app
