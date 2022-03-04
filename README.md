@@ -1,7 +1,6 @@
 # ML Album Artwork Genre Predictor
 
-This is a Python project to predict the genre of an album based on the cover art. 
-
+This is a Python project to predict the genre of an album based on the cover art.
 
 ## Installation Requirements
 
@@ -9,7 +8,8 @@ This is a Python project to predict the genre of an album based on the cover art
 - Flask >= 2.0.3
 - Pytest >= 7.0.1
 
-### Credits 
+### Credits
 
 Built by Northcoders, collaborators include:
-- 
+
+-

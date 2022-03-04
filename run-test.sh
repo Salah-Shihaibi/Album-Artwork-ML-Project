@@ -1,3 +1,1 @@
-python -m pytest -k users_ -v -s 
-
-#pytest -m
+python -m pytest -v -s 

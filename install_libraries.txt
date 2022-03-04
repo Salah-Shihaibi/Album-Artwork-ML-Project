@@ -1,0 +1,4 @@
+pytest
+flask
+flask_restful
+psycopg2
