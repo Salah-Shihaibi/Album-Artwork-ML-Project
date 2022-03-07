@@ -1,6 +1,7 @@
 from db.connection import connect
 import psycopg2
 from psycopg2 import Error
+from error_handling.error_classes import NoUserFoundError, IncorrectPasswordError
 
 
 def register_user(user):
@@ -22,21 +23,25 @@ def register_user(user):
 
 
 def login_user(cred):
+    
     try:
         db = connect()
         cursor = db.cursor()
         insert_query = """SELECT * FROM users WHERE email = %s"""
         cursor.execute(insert_query, (cred['email'],))
         user = cursor.fetchall()
-        if cred['password'] == user[0]['password']:
+        if(len(user) == 0):
+            raise NoUserFoundError
+        if cred['password'] != user[0]['password']:
             print('error incorrect password')
+            raise IncorrectPasswordError
         db.commit()
         cursor.close()
         db.close()
         return user[0]
     except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL", error)
         cursor.close()
         db.close()
+        raise error
 
 

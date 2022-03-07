@@ -40,6 +40,3 @@ def test_users_login(client):
     assert response.json["user"] == user_return
 
 
-    
-
-

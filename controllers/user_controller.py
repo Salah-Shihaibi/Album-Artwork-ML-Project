@@ -7,6 +7,7 @@ from utils.email_verification import is_valid_email
 from utils.psql_utils import get_user_column
 import psycopg2
 from psycopg2 import Error
+from error_handling.error_classes import IncorrectRequestBody
 
 class Ping(Resource):
     def get(self):
@@ -37,5 +38,16 @@ class Register(Resource):
 
 class Login(Resource):
     def post(self):
-        cred = {'user':login_user(request.json)} 
-        return cred, 200
+        try:
+            if "email" in request.json and "password" in request.json:
+                if type(request.json["email"] and request.json["password"]) != str:
+                    raise IncorrectRequestBody
+            else:
+                raise IncorrectRequestBody
+                
+            cred = {'user':login_user(request.json)} 
+            print(cred, "im not an error <<<<<<")
+            return cred, 200
+        except Exception as err:
+            print("im an error", err.response())
+            return err.response()
