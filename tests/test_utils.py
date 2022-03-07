@@ -4,7 +4,7 @@ import pytest
 import psycopg2
 from psycopg2 import Error
 from db.connection import connect
-from utils.utils import real_dict_user_conversion
+from utils.utils import real_dict_user_conversion, load_json_file_data
 from utils.classes import User
 
 @pytest.fixture(autouse=True)
@@ -42,5 +42,14 @@ def test_utils_user_class():
     assert user_list[-1].password == 'OyEF5HHEwCvn'
     assert user_list[-1].email == 'ebrickhill7@ft.com'
 
-
-  
+#test reading .JSON file to data
+def test_json_file_read():
+    data = load_json_file_data('db/data/user_data.json')
+    assert type(data) == dict
+    assert len(data["users"]) == 8
+    assert data["users"][0] == {
+            "username": "pchatwin0",
+            "name": "Parrnell Chatwin",
+            "password": "wEShNQ2J2I",
+            "email": "pchatwin0@blinklist.com"
+    }

@@ -20,7 +20,6 @@ def register_user(user):
         db.close()
 
 
-
 def login_user(cred):
     try:
         db = connect()
@@ -38,5 +37,3 @@ def login_user(cred):
         print("Error while connecting to PostgreSQL", error)
         cursor.close()
         db.close()
-
-

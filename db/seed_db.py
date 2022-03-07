@@ -1,7 +1,10 @@
 from db.connection import connect
 import psycopg2
 from psycopg2 import Error
-from db.data.user_data import users
+# from db.data.user_data import users
+from utils.utils import load_json_file_data
+
+
 
 def drop_table(table):
     try:
@@ -48,6 +51,10 @@ def insert_users_data():
         cursor = db.cursor()
         # Executing a SQL query to insert datetime into table
         insert_query = """ INSERT INTO users (username, name, password, email) VALUES (%(username)s, %(name)s, %(password)s, %(email)s)"""
+       
+        data = load_json_file_data('db/data/user_data.json')
+        users = data["users"]
+              
         cursor.executemany(insert_query, users)
         db.commit()
         print("users inserted successfully")
