@@ -15,9 +15,9 @@ def register_user(user):
         db.close()
         return user[0]
     except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL", error)
         cursor.close()
         db.close()
+        raise error
 
 
 
