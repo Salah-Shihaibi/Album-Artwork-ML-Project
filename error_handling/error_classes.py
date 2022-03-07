@@ -29,8 +29,6 @@ class PasswordTooShortError(Exception):
             "status": self.status
             }, 400
 
-
-
 # class EmailTakenError(Exception):
 #     abort(make_response(jsonify({
 #         "status":400,
@@ -38,4 +36,32 @@ class PasswordTooShortError(Exception):
 #         })), 400)
 
 
+# user does not exist
+class NoUserFoundError(Exception):
+    def __init__(self):
+        self.msg = 'User/password combination is not valid.' 
+        self.status_code = 400
+        
+    def response(self):
+        return {"msg":self.msg, "status_code": self.status_code}, self.status_code    
+    
+# user exists incorrect password
+class IncorrectPasswordError(Exception):
+    def __init__(self):
+        self.msg = 'User/password combination is not valid.' 
+        self.status_code = 400
+        
+    def response(self):
+        return {"msg":self.msg, "status_code": self.status_code}, self.status_code    
+    
+# incorrect request body
+class IncorrectRequestBody(Exception):
+    def __init__(self):
+        self.msg = 'Credentials invalid format' 
+        self.status_code = 400
+        
+    def response(self):
+        return {"msg":self.msg, "status_code": self.status_code}, self.status_code    
+    
+# error while connecting to db
 
