@@ -37,6 +37,7 @@ def test_utils_user_class():
             "password": "wEShNQ2J2I",
             "email": "pchatwin0@blinklist.com"
     }
+
     assert user_list[-1].username == 'ebrickhill7'
     assert user_list[-1].name == 'Elysha Brickhill'
     assert user_list[-1].password == 'OyEF5HHEwCvn'
