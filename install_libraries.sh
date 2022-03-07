@@ -1,1 +1,1 @@
-pip3 install -r install_libraries.txt
+pip3 install -r requirements.txt

@@ -1,10 +1,7 @@
 from db.connection import connect
 import psycopg2
 from psycopg2 import Error
-# from db.data.user_data import users
 from utils.utils import load_json_file_data
-
-
 
 def drop_table(table):
     try:
@@ -14,7 +11,6 @@ def drop_table(table):
         drop_table_query = f'DROP TABLE IF EXISTS {table};'
         cursor.execute(drop_table_query)
         db.commit()
-        print(f"Table {table} dropped")
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:
@@ -37,7 +33,6 @@ def create_user_table():
         """
         cursor.execute(create_table_query)
         db.commit()
-        print("Table created successfully in PSQL")
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:
@@ -57,7 +52,6 @@ def insert_users_data():
               
         cursor.executemany(insert_query, users)
         db.commit()
-        print("users inserted successfully")
     except (Exception, psycopg2.Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:

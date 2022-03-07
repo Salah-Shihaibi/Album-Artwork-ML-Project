@@ -14,7 +14,7 @@ Start a virtual environment with:
 
 Install required libraries by running the command below:
 
-- `bash ./install_libraries`
+- `bash ./install_libraries.sh`
 
 #### _Installation Requirements_
 
