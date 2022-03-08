@@ -23,7 +23,7 @@ def test_db_tables():
     x = cursor.fetchone()
     cursor.close()
     db.close()
-    assert x["exists"] == True
+    assert x["exists"]
 
 
 # test data in tables (SELECT)

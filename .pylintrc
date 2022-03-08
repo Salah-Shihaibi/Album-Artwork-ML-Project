@@ -1,0 +1,13 @@
+[MASTER]
+disable=
+    C0114, 
+    C0115,
+    C0116,
+    E0401,
+    C0103,
+    R0903
+
+[conftest.py]
+disable=
+    W0621
+    

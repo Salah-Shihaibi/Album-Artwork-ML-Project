@@ -4,14 +4,14 @@ from factory.main_factory import create_app
 
 @pytest.fixture()
 def app():
-    app = create_app()
-    app.config.update(
+    server = create_app()
+    server.config.update(
         {
             "TESTING": True,
         }
     )
 
-    yield app
+    yield server
 
 
 @pytest.fixture()

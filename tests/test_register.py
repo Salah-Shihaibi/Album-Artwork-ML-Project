@@ -1,16 +1,13 @@
 import json
+import pytest
 from db.seed_db import seed
 from utils.psql_utils import get_all_users
-import pytest
+from utils.general_utils import headers
 
 
 @pytest.fixture(autouse=True)
 def run_around_tests():
     seed()
-
-
-mimetype = "application/json"
-headers = {"Content-Type": mimetype, "Accept": mimetype}
 
 
 def test_users_register(client):

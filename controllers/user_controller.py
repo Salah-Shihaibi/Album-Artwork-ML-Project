@@ -6,20 +6,22 @@ from error_handling.error_classes import (
     EmailTakenError,
     UsernameTakenError,
     IncorrectRequestBodyError,
+    CustomError,
 )
 from models.user_model import register_user, login_user
 from utils.email_verification import is_valid_email
 from utils.psql_utils import get_user_column
-import psycopg2
 
 
 class Ping(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return 200
 
 
 class Register(Resource):
-    def post(self):
+    @staticmethod
+    def post():
         try:
             user_data = request.json
             if (
@@ -39,20 +41,23 @@ class Register(Resource):
                 raise UsernameTakenError
             new_user = {"user": register_user(user_data)}
             return new_user, 200
-        except (Exception, psycopg2.Error) as error:
+        except CustomError as error:
             return error.response()
 
 
 class Login(Resource):
-    def post(self):
+    @staticmethod
+    def post():
         try:
             if "email" in request.json and "password" in request.json:
-                if type(request.json["email"] and request.json["password"]) != str:
+                if not isinstance(request.json["email"], str) or not isinstance(
+                    request.json["password"], str
+                ):
                     raise IncorrectRequestBodyError
             else:
                 raise IncorrectRequestBodyError
 
             cred = {"user": login_user(request.json)}
             return cred, 200
-        except Exception as err:
-            return err.response()
+        except CustomError as error:
+            return error.response()

@@ -1,5 +1,5 @@
-from utils.classes import User
 import json
+from utils.classes import User
 
 
 def real_dict_user_conversion(real_dict_list):
@@ -15,6 +15,9 @@ def real_dict_user_conversion(real_dict_list):
 
 
 def load_json_file_data(file_path):
-    with open(file_path) as json_file:
+    with open(file_path, encoding="ascii") as json_file:
         data = json.load(json_file)
         return data
+
+
+headers = {"Content-Type": "application/json", "Accept": "application/json"}
