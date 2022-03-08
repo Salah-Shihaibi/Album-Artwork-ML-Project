@@ -1,3 +1,4 @@
+from firebase_app import auth
 from flask_restful import Resource
 from flask import jsonify, make_response, abort, request
 from error_handling.error_classes import EmailInvalidError, PasswordTooShortError, EmailTakenError, UsernameTakenError,IncorrectRequestBodyError
@@ -9,7 +10,8 @@ from psycopg2 import Error
 
 class Ping(Resource):
     def get(self):
-        return 200
+        return {}, 200
+        
 
 class Register(Resource):
     def post(self):
@@ -43,3 +45,13 @@ class Login(Resource):
             return cred, 200
         except Exception as err:
             return err.response()
+
+
+class Secret(Resource):
+    def get(self):
+        idToken = request.headers.get('Authorization')
+        if not idToken:
+            return {}, 401
+        else:            
+            auth.verify_id_token(idToken)   
+            return {"secret":"I have an identical twin, also called ed"}, 200
