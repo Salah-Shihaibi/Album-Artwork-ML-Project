@@ -1,55 +1,58 @@
-# handle psql error
-
-from flask import make_response, abort, jsonify
-from flask_restful import Resource
-
 class CustomError(Exception):
     def __init__(self):
-        self.msg = 'Internal server error.'
+        self.msg = "Internal server error."
         self.status_code = 500
+
     def response(self):
-        return {"msg":self.msg, "status_code": self.status_code}, self.status_code 
+        return {"msg": self.msg, "status_code": self.status_code}, self.status_code
+
 
 class PasswordTooShortError(CustomError):
-    def __init__(self):        
-        self.msg = 'Password should be 5 characters or longer.'
+    def __init__(self):
+        self.msg = "Password should be 5 characters or longer."
         self.status_code = 400
 
+
 class UsernameTakenError(CustomError):
-    def __init__(self):      
-        self.msg = 'Username is already in use.'
+    def __init__(self):
+        self.msg = "Username is already in use."
         self.status_code = 400
+
 
 class EmailTakenError(CustomError):
     def __init__(self):
-        self.msg = 'Email address is already in use.'
+        self.msg = "Email address is already in use."
         self.status_code = 400
+
 
 class EmailInvalidError(CustomError):
     def __init__(self):
-        self.msg = 'Email address invalid.'
+        self.msg = "Email address invalid."
         self.status_code = 400
+
 
 class NoUserFoundError(CustomError):
     def __init__(self):
-        self.msg = 'User/password combination is not valid.' 
+        self.msg = "User/password combination is not valid."
         self.status_code = 400
+
 
 class IncorrectPasswordError(CustomError):
     def __init__(self):
-        self.msg = 'User/password combination is not valid.' 
+        self.msg = "User/password combination is not valid."
         self.status_code = 400
-        
+
+
 class IncorrectRequestBodyError(CustomError):
     def __init__(self):
-        self.msg = 'Credentials invalid format.' 
+        self.msg = "Credentials invalid format."
         self.status_code = 400
-        
+
+
 class SQLErrorHandler(CustomError):
     def __init__(self, error_code):
         self.status_code = 400
-        if error_code == '42883':
-            self.msg = 'Database ERROR: Invalid input.'
-        if error_code == '23502':
-            self.msg = 'Database ERROR: Data not provided.'
-            
+        if error_code == "42883":
+            self.msg = "Database ERROR: Invalid input."
+        if error_code == "23502":
+            self.msg = "Database ERROR: Data not provided."

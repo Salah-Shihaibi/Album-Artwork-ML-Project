@@ -4,14 +4,15 @@ import psycopg2
 from psycopg2 import Error
 from db.connection import connect
 
+
 @pytest.fixture(autouse=True)
 def run_around_tests():
     seed()
 
-   
-#test tables exist
+
+# test tables exist
 def test_db_tables():
-   
+
     db = connect()
     cursor = db.cursor()
     query = """
@@ -27,17 +28,13 @@ def test_db_tables():
     assert x["exists"] == True
 
 
-   
-#test data in tables (SELECT)
+# test data in tables (SELECT)
 def test_tables_users():
     db = connect()
     cursor = db.cursor()
-    query = '''SELECT * FROM users'''
+    query = """SELECT * FROM users"""
     cursor.execute(query)
     users = cursor.fetchall()
     cursor.close()
     db.close()
     assert len(users) == 8
-    
-
-  
