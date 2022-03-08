@@ -7,7 +7,6 @@ def drop_table(table):
     try:
         db = connect()     
         cursor = db.cursor()
-        #create new table
         drop_table_query = f'DROP TABLE IF EXISTS {table};'
         cursor.execute(drop_table_query)
         db.commit()

@@ -1,4 +1,3 @@
-from sqlite3 import Cursor
 from db.seed_db import seed
 import pytest
 import psycopg2
@@ -6,6 +5,7 @@ from psycopg2 import Error
 from db.connection import connect
 from utils.utils import real_dict_user_conversion, load_json_file_data
 from utils.classes import User
+
 
 @pytest.fixture(autouse=True)
 def run_around_tests():
