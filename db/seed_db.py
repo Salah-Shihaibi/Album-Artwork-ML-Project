@@ -50,7 +50,6 @@ def insert_users_data():
         insert_query = """ INSERT INTO users (username, name, password, email) VALUES (%(username)s, %(name)s, %(password)s, %(email)s)"""
         cursor.executemany(insert_query, users)
         db.commit()
-        print("users inserted successfully")
     except (Exception, psycopg2.Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:

@@ -75,4 +75,20 @@ def test_correct_body_error(client):
         '/auth/login', data=json.dumps(user), headers=headers)
 
     assert response.status_code == 400
-    assert response.json["msg"] == 'Credentials invalid format'
+    assert response.json["msg"] == 'Credentials invalid format.'
+
+def test_correct_body_type_error(client):
+    user = {
+        "email": 123,
+        "password": "myPassWordIsWrong",
+    }
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype,
+        'Accept': mimetype
+    }
+    response = client.post(
+        '/auth/login', data=json.dumps(user), headers=headers)
+
+    assert response.status_code == 400
+    assert response.json["msg"] == 'Database ERROR: Invalid input.'

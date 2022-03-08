@@ -74,3 +74,38 @@ def test_invalid_password(client):
     assert response.status_code == 400
     assert response.json["msg"] == 'Password should be 5 characters or longer.'
 
+
+def test_correct_body_error(client):
+    user = {
+        "password": "myPassWordIsWrong",
+        "username": 'pal',
+        "name": 'pal'
+    }
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype,
+        'Accept': mimetype
+    }
+    response = client.post(
+        '/auth/register', data=json.dumps(user), headers=headers)
+
+    assert response.status_code == 400
+    assert response.json["msg"] == 'Credentials invalid format.'
+
+def test_correct_body_type_error(client):
+    user = {
+        "username": "OldMichaelGreogry",
+        "name": None,
+        "email": "whippy95@hotmail.com",
+        "password": "cla1231nkerton"
+    }
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype,
+        'Accept': mimetype
+    }
+    response = client.post(
+        '/auth/register', data=json.dumps(user), headers=headers)
+
+    assert response.status_code == 400
+    assert response.json["msg"] == 'Database ERROR: Data not provided.'
