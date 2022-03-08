@@ -81,11 +81,6 @@ def test_correct_body_error(client):
         "username": 'pal',
         "name": 'pal'
     }
-    mimetype = 'application/json'
-    headers = {
-        'Content-Type': mimetype,
-        'Accept': mimetype
-    }
     response = client.post(
         '/auth/register', data=json.dumps(user), headers=headers)
 
@@ -98,11 +93,6 @@ def test_correct_body_type_error(client):
         "name": None,
         "email": "whippy95@hotmail.com",
         "password": "cla1231nkerton"
-    }
-    mimetype = 'application/json'
-    headers = {
-        'Content-Type': mimetype,
-        'Accept': mimetype
     }
     response = client.post(
         '/auth/register', data=json.dumps(user), headers=headers)
