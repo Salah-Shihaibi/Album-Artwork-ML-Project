@@ -1,7 +1,5 @@
-from db.seed_db import seed
 import pytest
-import psycopg2
-from psycopg2 import Error
+from db.seed_db import seed
 from db.connection import connect
 from utils.utils import real_dict_user_conversion, load_json_file_data
 from utils.classes import User

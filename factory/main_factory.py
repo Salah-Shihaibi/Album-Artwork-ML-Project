@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_restful import Api
 from controllers.user_controller import Register, Login, Ping
-from config import DevelopmentConfig
 
 
 def create_app():

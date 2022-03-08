@@ -1,6 +1,5 @@
 from db.connection import connect
 import psycopg2
-from psycopg2 import Error
 from error_handling.error_classes import (
     NoUserFoundError,
     IncorrectPasswordError,

@@ -1,7 +1,5 @@
-from db.seed_db import seed
 import pytest
-import psycopg2
-from psycopg2 import Error
+from db.seed_db import seed
 from db.connection import connect
 
 

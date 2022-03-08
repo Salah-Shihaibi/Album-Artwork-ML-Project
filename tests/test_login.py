@@ -1,6 +1,5 @@
 import pytest
 from db.seed_db import seed
-from db.connection import connect
 import json
 
 
