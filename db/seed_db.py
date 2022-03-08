@@ -7,11 +7,9 @@ def drop_table(table):
     try:
         db = connect()     
         cursor = db.cursor()
-        #create new table
         drop_table_query = f'DROP TABLE IF EXISTS {table};'
         cursor.execute(drop_table_query)
         db.commit()
-        print(f"Table {table} dropped")
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:
@@ -34,7 +32,6 @@ def create_user_table():
         """
         cursor.execute(create_table_query)
         db.commit()
-        print("Table created successfully in PSQL")
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:
