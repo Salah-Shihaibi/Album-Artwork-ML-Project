@@ -1,38 +1,60 @@
-[debug] [2022-03-08T14:56:06.186Z] ----------------------------------------------------------------------
-[debug] [2022-03-08T14:56:06.187Z] Command:       /usr/local/bin/firebase /Users/ed/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
-[debug] [2022-03-08T14:56:06.187Z] CLI Version:   10.2.2
-[debug] [2022-03-08T14:56:06.187Z] Platform:      darwin
-[debug] [2022-03-08T14:56:06.188Z] Node Version:  v12.18.1
-[debug] [2022-03-08T14:56:06.189Z] Time:          Tue Mar 08 2022 14:56:06 GMT+0000 (Greenwich Mean Time)
-[debug] [2022-03-08T14:56:06.189Z] ----------------------------------------------------------------------
+[debug] [2022-03-09T12:14:56.292Z] ----------------------------------------------------------------------
+[debug] [2022-03-09T12:14:56.293Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:exec ./run_jwt_tests.sh
+[debug] [2022-03-09T12:14:56.293Z] CLI Version:   10.1.2
+[debug] [2022-03-09T12:14:56.293Z] Platform:      darwin
+[debug] [2022-03-09T12:14:56.293Z] Node Version:  v14.17.6
+[debug] [2022-03-09T12:14:56.294Z] Time:          Wed Mar 09 2022 12:14:56 GMT+0000 (Greenwich Mean Time)
+[debug] [2022-03-09T12:14:56.294Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-03-08T14:56:06.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-03-08T14:56:06.239Z] > authorizing via signed-in user (edward.heywood-everett@northcoders.com)
+[debug] [2022-03-09T12:14:56.344Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-09T12:14:56.345Z] > authorizing via signed-in user (eden.obrien@northcoders.com)
 [info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
-[debug] [2022-03-08T14:56:06.256Z] [hub] writing locator at /var/folders/23/2sbgkws96g9_m7vq9bc7zgvr0000gn/T/hub-mlalbumartproject.json
-[info] i  ui: downloading ui-v1.6.5.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.6.5.zip..."}}
-[debug] [2022-03-08T14:56:13.772Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.6.5.zip 
-[debug] [2022-03-08T14:56:13.838Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.6.5.zip 200
-[debug] [2022-03-08T14:56:13.838Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.6.5.zip [stream]
-[debug] [2022-03-08T14:56:14.929Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-03-08T14:56:14.929Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2022-03-08T14:56:14.929Z] Starting Emulator UI with command {"binary":"node","args":["/Users/ed/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/ed/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
-[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2022-03-08T14:56:15.146Z] Web / API server started at localhost:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
-[info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://localhost:4000                │
-└─────────────────────────────────────────────────────────────┘
-
-┌────────────────┬────────────────┬────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI        │
-├────────────────┼────────────────┼────────────────────────────┤
-│ Authentication │ localhost:9099 │ http://localhost:4000/auth │
-└────────────────┴────────────────┴────────────────────────────┘
-  Emulator Hub running at localhost:4400
-  Other reserved ports: 4500
-
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
+[debug] [2022-03-09T12:14:56.363Z] [hub] writing locator at /var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/hub-mlalbumartproject.json
+[info] i  Running script: ./run_jwt_tests.sh 
+[debug] [2022-03-09T12:15:01.658Z] Running ./run_jwt_tests.sh with environment {"USER":"eobr","__CFBundleIdentifier":"com.microsoft.VSCode","COMMAND_MODE":"unix2003","LOGNAME":"eobr","PATH":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project/venv/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin","SSH_AUTH_SOCK":"/private/tmp/com.apple.launchd.uZUraQzin2/Listeners","SHELL":"/bin/zsh","HOME":"/Users/eobr","__CF_USER_TEXT_ENCODING":"0x1F5:0:2","TMPDIR":"/var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/","XPC_SERVICE_NAME":"0","XPC_FLAGS":"0x0","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","SHLVL":"1","PWD":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project","OLDPWD":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project","HOMEBREW_PREFIX":"/opt/homebrew","HOMEBREW_CELLAR":"/opt/homebrew/Cellar","HOMEBREW_REPOSITORY":"/opt/homebrew","MANPATH":"/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:","INFOPATH":"/opt/homebrew/share/info:/opt/homebrew/share/info:","ZSH":"/Users/eobr/.oh-my-zsh","PAGER":"less","LESS":"-R","LSCOLORS":"Gxfxcxdxbxegedabagacad","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.65.0","LANG":"en_GB.UTF-8","COLORTERM":"truecolor","VSCODE_GIT_IPC_HANDLE":"/var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/vscode-git-c1c7a3bbe4.sock","GIT_ASKPASS":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh","VSCODE_GIT_ASKPASS_NODE":"/Applications/Visual Studio Code.app/Contents/MacOS/Electron","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js","TERM":"xterm-256color","VIRTUAL_ENV":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project/venv","PS1":"(venv) %(?:%{\u001b[01;32m%}➜ :%{\u001b[01;31m%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)","VIRTUAL_ENV_PROMPT":"(venv) ","_":"/usr/local/bin/firebase","IS_FIREBASE_CLI":"true","GCLOUD_PROJECT":"mlalbumartproject","FIREBASE_AUTH_EMULATOR_HOST":"localhost:9099","FIREBASE_EMULATOR_HUB":"localhost:4400"}
+[warn] ⚠  Script exited unsuccessfully (code 126) 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  auth: Stopping Authentication Emulator {"metadata":{"emulator":{"name":"auth"},"message":"Stopping Authentication Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[error] 
+[error] Error: Script "./run_jwt_tests.sh" exited with code 126
+[debug] [2022-03-09T12:20:56.268Z] ----------------------------------------------------------------------
+[debug] [2022-03-09T12:20:56.269Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:exec ./run_jwt_tests.sh
+[debug] [2022-03-09T12:20:56.269Z] CLI Version:   10.1.2
+[debug] [2022-03-09T12:20:56.269Z] Platform:      darwin
+[debug] [2022-03-09T12:20:56.269Z] Node Version:  v14.17.6
+[debug] [2022-03-09T12:20:56.270Z] Time:          Wed Mar 09 2022 12:20:56 GMT+0000 (Greenwich Mean Time)
+[debug] [2022-03-09T12:20:56.270Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-09T12:20:56.320Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-09T12:20:56.320Z] > authorizing via signed-in user (eden.obrien@northcoders.com)
+[info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
+[debug] [2022-03-09T12:20:56.338Z] [hub] writing locator at /var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/hub-mlalbumartproject.json
+[info] i  Running script: ./run_jwt_tests.sh 
+[debug] [2022-03-09T12:21:01.568Z] Running ./run_jwt_tests.sh with environment {"USER":"eobr","__CFBundleIdentifier":"com.microsoft.VSCode","COMMAND_MODE":"unix2003","LOGNAME":"eobr","PATH":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project/venv/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin","SSH_AUTH_SOCK":"/private/tmp/com.apple.launchd.uZUraQzin2/Listeners","SHELL":"/bin/zsh","HOME":"/Users/eobr","__CF_USER_TEXT_ENCODING":"0x1F5:0:2","TMPDIR":"/var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/","XPC_SERVICE_NAME":"0","XPC_FLAGS":"0x0","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","SHLVL":"1","PWD":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project","OLDPWD":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project","HOMEBREW_PREFIX":"/opt/homebrew","HOMEBREW_CELLAR":"/opt/homebrew/Cellar","HOMEBREW_REPOSITORY":"/opt/homebrew","MANPATH":"/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:","INFOPATH":"/opt/homebrew/share/info:/opt/homebrew/share/info:","ZSH":"/Users/eobr/.oh-my-zsh","PAGER":"less","LESS":"-R","LSCOLORS":"Gxfxcxdxbxegedabagacad","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.65.0","LANG":"en_GB.UTF-8","COLORTERM":"truecolor","VSCODE_GIT_IPC_HANDLE":"/var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/vscode-git-c1c7a3bbe4.sock","GIT_ASKPASS":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh","VSCODE_GIT_ASKPASS_NODE":"/Applications/Visual Studio Code.app/Contents/MacOS/Electron","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js","TERM":"xterm-256color","VIRTUAL_ENV":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project/venv","PS1":"(venv) %(?:%{\u001b[01;32m%}➜ :%{\u001b[01;31m%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)","VIRTUAL_ENV_PROMPT":"(venv) ","_":"/usr/local/bin/firebase","IS_FIREBASE_CLI":"true","GCLOUD_PROJECT":"mlalbumartproject","FIREBASE_AUTH_EMULATOR_HOST":"localhost:9099","FIREBASE_EMULATOR_HUB":"localhost:4400"}
+[warn] ⚠  Script exited unsuccessfully (code 4) 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  auth: Stopping Authentication Emulator {"metadata":{"emulator":{"name":"auth"},"message":"Stopping Authentication Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[error] 
+[error] Error: Script "./run_jwt_tests.sh" exited with code 4
+[debug] [2022-03-09T12:26:50.954Z] ----------------------------------------------------------------------
+[debug] [2022-03-09T12:26:50.955Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:exec ./run_jwt_tests.sh
+[debug] [2022-03-09T12:26:50.955Z] CLI Version:   10.1.2
+[debug] [2022-03-09T12:26:50.955Z] Platform:      darwin
+[debug] [2022-03-09T12:26:50.955Z] Node Version:  v14.17.6
+[debug] [2022-03-09T12:26:50.960Z] Time:          Wed Mar 09 2022 12:26:50 GMT+0000 (Greenwich Mean Time)
+[debug] [2022-03-09T12:26:50.960Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-09T12:26:51.018Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-09T12:26:51.019Z] > authorizing via signed-in user (eden.obrien@northcoders.com)
+[info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
+[debug] [2022-03-09T12:26:51.037Z] [hub] writing locator at /var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/hub-mlalbumartproject.json
+[info] i  Running script: ./run_jwt_tests.sh 
+[debug] [2022-03-09T12:26:57.105Z] Running ./run_jwt_tests.sh with environment {"USER":"eobr","__CFBundleIdentifier":"com.microsoft.VSCode","COMMAND_MODE":"unix2003","LOGNAME":"eobr","PATH":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project/venv/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin","SSH_AUTH_SOCK":"/private/tmp/com.apple.launchd.uZUraQzin2/Listeners","SHELL":"/bin/zsh","HOME":"/Users/eobr","__CF_USER_TEXT_ENCODING":"0x1F5:0:2","TMPDIR":"/var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/","XPC_SERVICE_NAME":"0","XPC_FLAGS":"0x0","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","SHLVL":"1","PWD":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project","OLDPWD":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project","HOMEBREW_PREFIX":"/opt/homebrew","HOMEBREW_CELLAR":"/opt/homebrew/Cellar","HOMEBREW_REPOSITORY":"/opt/homebrew","MANPATH":"/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:","INFOPATH":"/opt/homebrew/share/info:/opt/homebrew/share/info:","ZSH":"/Users/eobr/.oh-my-zsh","PAGER":"less","LESS":"-R","LSCOLORS":"Gxfxcxdxbxegedabagacad","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.65.0","LANG":"en_GB.UTF-8","COLORTERM":"truecolor","VSCODE_GIT_IPC_HANDLE":"/var/folders/6j/jrw_hdy56lbf5ncgsn9bbr7h0000gn/T/vscode-git-c1c7a3bbe4.sock","GIT_ASKPASS":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh","VSCODE_GIT_ASKPASS_NODE":"/Applications/Visual Studio Code.app/Contents/MacOS/Electron","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js","TERM":"xterm-256color","VIRTUAL_ENV":"/Users/eobr/northcoders/ML-Project/Album-Artwork-ML-Project/venv","PS1":"(venv) %(?:%{\u001b[01;32m%}➜ :%{\u001b[01;31m%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)","VIRTUAL_ENV_PROMPT":"(venv) ","_":"/usr/local/bin/firebase","IS_FIREBASE_CLI":"true","GCLOUD_PROJECT":"mlalbumartproject","FIREBASE_AUTH_EMULATOR_HOST":"localhost:9099","FIREBASE_EMULATOR_HUB":"localhost:4400"}
+[warn] ⚠  Script exited unsuccessfully (code 4) 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  auth: Stopping Authentication Emulator {"metadata":{"emulator":{"name":"auth"},"message":"Stopping Authentication Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[error] 
+[error] Error: Script "./run_jwt_tests.sh" exited with code 4

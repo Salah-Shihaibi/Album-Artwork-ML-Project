@@ -1,21 +1,24 @@
+from flask import request
 from firebase_app import auth
 import requests
 
 # no JWT sent
 def test_no_jwt_sent(client):    
-    headers = {
-    }
+    headers = {}
     response = client.get('/secret', headers = headers)
     assert response.status_code == 401
-    headers = {
-        "authorization":""
-    }
+    headers = { "authorization":"" }
     response = client.get('/secret', headers = headers)
     assert response.status_code == 401
 
 
 # valid token returns status code 200, and ed's secret
 def test_jwt_valid_code(client):
+
+    users = auth.list_users()
+
+    for user in users.users:
+        auth.delete_user(user.uid)
     
     # create new user
     user = auth.create_user(
@@ -38,5 +41,4 @@ sign_in_url = "http://localhost:9099/identitytoolkit.googleapis.com/v1/accounts:
 
 def sign_in_test_user():
     response = requests.post(sign_in_url, json={ "email": "firstUser@user.com", "password": "password123"})
-
     return response.json()
