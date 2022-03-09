@@ -1,8 +1,8 @@
 import pytest
 from db.seed_db import seed
-from db.connection import connect
 from utils.general_utils import real_dict_user_conversion, load_json_file_data
 from utils.classes import User
+from utils.psql_utils import get_all_users
 
 
 @pytest.fixture(autouse=True)
@@ -12,14 +12,8 @@ def run_around_tests():
 
 # test conversion to User class object from  (SELECT)
 def test_utils_user_class():
-    db = connect()
-    cursor = db.cursor()
-    query = """SELECT * FROM users"""
-    cursor.execute(query)
-    users = cursor.fetchall()
+    users = get_all_users()
     user_list = real_dict_user_conversion(users)
-    cursor.close()
-    db.close()
     # loop through user objects and test contents
     assert len(user_list) == 8
     for user in user_list:

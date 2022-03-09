@@ -68,12 +68,12 @@ def test_invalid_password(client):
         "username": "germanwhip2009",
         "name": "Jackson French",
         "email": "whippy95@hotmail.com",
-        "password": "abcg",
+        "password": "acc",
     }
     response = client.post(
         "/auth/register", data=json.dumps(short_password_user), headers=headers
     )
-    assert response.status_code == 400
+    assert response.status_code == 200
     assert response.json["msg"] == "Password should be 5 characters or longer."
 
 

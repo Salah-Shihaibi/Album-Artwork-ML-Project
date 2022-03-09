@@ -41,3 +41,5 @@ Built by [XAV BRUGGEN](https://github.com/gravybru), collaborators include:
 - [Salah Shihaibi](https://github.com/salah-shihaibi)
 - [Ed Heywood-Everett](https://github.com/edheyev)
 - [Elliot Ferryman-Avery](https://github.com/TermMC)
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)

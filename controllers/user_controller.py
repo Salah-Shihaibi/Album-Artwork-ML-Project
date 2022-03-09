@@ -48,6 +48,7 @@ class Register(Resource):
 class Login(Resource):
     @staticmethod
     def post():
+
         try:
             if "email" in request.json and "password" in request.json:
                 if not isinstance(request.json["email"], str) or not isinstance(

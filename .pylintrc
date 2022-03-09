@@ -1,13 +1,10 @@
 [MASTER]
-disable=
-    C0114, 
-    C0115,
-    C0116,
-    E0401,
-    C0103,
-    R0903
+init-hook = 'import sys; sys.path.append('E:\R2\Album-Artwork-ML-Project')'
+disable = C0114,
+	    C0115,
+	    C0116,
+	    C0103,
+	    R0903
 
 [conftest.py]
-disable=
-    W0621
-    
+disable = W0621
