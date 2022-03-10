@@ -73,7 +73,7 @@ def test_invalid_password(client):
     response = client.post(
         "/auth/register", data=json.dumps(short_password_user), headers=headers
     )
-    assert response.status_code == 200
+    assert response.status_code == 400
     assert response.json["msg"] == "Password should be 5 characters or longer."
 
 

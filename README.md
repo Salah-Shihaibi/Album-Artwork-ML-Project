@@ -33,6 +33,12 @@ Testing is completed with Pytest library. To run tests execute:
 
 - `bash ./run_test.sh`
 
+## _Linting_
+
+Linting is preformed using pylint. To run the linter execute:
+
+- `bash ./run_linting`
+
 ### _Credits_
 
 Built by [XAV BRUGGEN](https://github.com/gravybru), collaborators include:
