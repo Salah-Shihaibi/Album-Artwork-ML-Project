@@ -11,16 +11,17 @@ from utils.classes import User
 def run_around_tests():
     seed()
 
-#test conversion to User class object from  (SELECT)
+
+# test conversion to User class object from  (SELECT)
 def test_utils_user_class():
     db = connect()
     cursor = db.cursor()
-    query = '''SELECT * FROM users'''
+    query = """SELECT * FROM users"""
     cursor.execute(query)
-    users = cursor.fetchall()    
+    users = cursor.fetchall()
     user_list = real_dict_user_conversion(users)
-    cursor.close()  
-    db.close() 
+    cursor.close()
+    db.close()
     # loop through user objects and test contents
     assert len(user_list) == 8
     for user in user_list:
@@ -32,25 +33,26 @@ def test_utils_user_class():
         assert type(user.password) is str
 
     assert user_list[0].self_dict() == {
-            "username": "pchatwin0",
-            "name": "Parrnell Chatwin",
-            "password": "wEShNQ2J2I",
-            "email": "pchatwin0@blinklist.com"
+        "username": "pchatwin0",
+        "name": "Parrnell Chatwin",
+        "password": "wEShNQ2J2I",
+        "email": "pchatwin0@blinklist.com",
     }
 
-    assert user_list[-1].username == 'ebrickhill7'
-    assert user_list[-1].name == 'Elysha Brickhill'
-    assert user_list[-1].password == 'OyEF5HHEwCvn'
-    assert user_list[-1].email == 'ebrickhill7@ft.com'
+    assert user_list[-1].username == "ebrickhill7"
+    assert user_list[-1].name == "Elysha Brickhill"
+    assert user_list[-1].password == "OyEF5HHEwCvn"
+    assert user_list[-1].email == "ebrickhill7@ft.com"
 
-#test reading .JSON file to data
+
+# test reading .JSON file to data
 def test_json_file_read():
-    data = load_json_file_data('db/data/user_data.json')
+    data = load_json_file_data("db/data/user_data.json")
     assert type(data) == dict
     assert len(data["users"]) == 8
     assert data["users"][0] == {
-            "username": "pchatwin0",
-            "name": "Parrnell Chatwin",
-            "password": "wEShNQ2J2I",
-            "email": "pchatwin0@blinklist.com"
+        "username": "pchatwin0",
+        "name": "Parrnell Chatwin",
+        "password": "wEShNQ2J2I",
+        "email": "pchatwin0@blinklist.com",
     }
