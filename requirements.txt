@@ -1,4 +1,7 @@
-pytest == 7.0.1
+black == 21.12b0
 flask == 2.0.3
 flask_restful == 0.3.9
+pre-commit
 psycopg2 == 2.9.3
+pylint == 2.12.2
+pytest == 7.0.1
