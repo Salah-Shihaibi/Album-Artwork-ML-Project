@@ -21,6 +21,6 @@ if not config.has_section("MASTER"):
     config.add_section("conftest.py")
     config.set("conftest.py", "disable", "W0621")
 
-with open(".pylintrc", "w", encoding="ANSI") as cfg_file:
+with open(".pylintrc", "w", encoding="ASCII") as cfg_file:
 
     config.write(cfg_file)
