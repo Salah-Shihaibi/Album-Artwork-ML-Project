@@ -1,6 +1,5 @@
-from db.connection import connect
-import psycopg2
 from psycopg2 import Error
+from db.connection import connect
 from error_handling.error_classes import (
     NoUserFoundError,
     IncorrectPasswordError,
@@ -12,17 +11,20 @@ def register_user(user):
     try:
         db = connect()
         cursor = db.cursor()
-        insert_query = """ INSERT INTO users (username, name, password, email) VALUES (%(username)s, %(name)s, %(password)s, %(email)s) RETURNING *"""
+        insert_query = """INSERT INTO users
+        (username, name, password, email) VALUES
+        (%(username)s, %(name)s, %(password)s, %(email)s)
+        RETURNING *"""
         cursor.execute(insert_query, user)
         user = cursor.fetchall()
         db.commit()
         cursor.close()
         db.close()
         return user[0]
-    except psycopg2.Error as error:
+    except Error as error:
         cursor.close()
         db.close()
-        raise SQLErrorHandler(error.pgcode)
+        raise SQLErrorHandler(error.pgcode) from error
     except Exception as error:
         cursor.close()
         db.close()
@@ -45,11 +47,10 @@ def login_user(cred):
         cursor.close()
         db.close()
         return user[0]
-    except psycopg2.Error as error:
+    except Error as error:
         cursor.close()
         db.close()
-        raise SQLErrorHandler(error.pgcode)
+        raise SQLErrorHandler(error.pgcode) from error
     except Exception as error:
-        cursor.close()
         db.close()
         raise error

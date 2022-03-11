@@ -1,7 +1,5 @@
-from db.seed_db import seed
 import pytest
-import psycopg2
-from psycopg2 import Error
+from db.seed_db import seed
 from db.connection import connect
 
 
@@ -25,7 +23,7 @@ def test_db_tables():
     x = cursor.fetchone()
     cursor.close()
     db.close()
-    assert x["exists"] == True
+    assert x["exists"]
 
 
 # test data in tables (SELECT)

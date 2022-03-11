@@ -1,5 +1,4 @@
 import pytest
-
 from factory.main_factory import create_app
 
 

@@ -1,27 +1,28 @@
-from firebase_app import auth, validate_token
+from flask import request
 from flask_restful import Resource
-from flask import jsonify, make_response, abort, request
+from firebase_app import validate_token
 from error_handling.error_classes import (
     EmailInvalidError,
     PasswordTooShortError,
     EmailTakenError,
     UsernameTakenError,
     IncorrectRequestBodyError,
+    CustomError,
 )
 from models.user_model import register_user, login_user
 from utils.email_verification import is_valid_email
 from utils.psql_utils import get_user_column
-import psycopg2
-from psycopg2 import Error
 
 
 class Ping(Resource):
-    def get(self):
-        return {}, 200
+    @staticmethod
+    def get():
+        return 200
 
 
 class Register(Resource):
-    def post(self):
+    @staticmethod
+    def post():
         try:
             user_data = request.json
             if (
@@ -41,27 +42,32 @@ class Register(Resource):
                 raise UsernameTakenError
             new_user = {"user": register_user(user_data)}
             return new_user, 200
-        except (Exception, psycopg2.Error) as error:
+        except CustomError as error:
             return error.response()
 
 
 class Login(Resource):
-    def post(self):
+    @staticmethod
+    def post():
+
         try:
             if "email" in request.json and "password" in request.json:
-                if type(request.json["email"] and request.json["password"]) != str:
+                if not isinstance(request.json["email"], str) or not isinstance(
+                    request.json["password"], str
+                ):
                     raise IncorrectRequestBodyError
             else:
                 raise IncorrectRequestBodyError
 
             cred = {"user": login_user(request.json)}
             return cred, 200
-        except Exception as err:
-            return err.response()
+        except CustomError as error:
+            return error.response()
 
 
 class Secret(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         try:
             validate_token(request)
             return {"secret": "I have an identical twin, also called ed"}, 200
