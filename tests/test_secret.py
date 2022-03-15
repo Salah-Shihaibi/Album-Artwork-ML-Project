@@ -27,7 +27,6 @@ def test_jwt_valid_code(client):
     )
 
     response = sign_in_test_user(user)
-    print(response)
 
     headers = {"authorization": response["idToken"]}
     response = client.get("/secret", headers=headers)
@@ -50,7 +49,6 @@ def test_jwt_invalid_code(client):
     )
 
     response = sign_in_test_user(user)
-    print(response)
 
     headers = {"authorization": ""}
     response = client.get("/secret", headers=headers)
@@ -76,7 +74,6 @@ def test_jwt_invalid_code_2(client):
     )
 
     response = sign_in_test_user(user)
-    print(response)
 
     headers = {"authorization": "wrong"}
     response = client.get("/secret", headers=headers)
