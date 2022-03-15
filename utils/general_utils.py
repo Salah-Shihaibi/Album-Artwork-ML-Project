@@ -1,4 +1,5 @@
 import json
+import requests
 from utils.classes import User
 
 
@@ -21,3 +22,12 @@ def load_json_file_data(file_path):
 
 
 headers = {"Content-Type": "application/json", "Accept": "application/json"}
+
+
+def sign_in_test_user(user):
+    sign_in_url = "http://localhost:9099/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=fake-key"
+    response = requests.post(
+        sign_in_url,
+        json={"email": user.email, "password": "password123"},
+    )
+    return response.json()

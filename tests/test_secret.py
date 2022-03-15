@@ -1,6 +1,6 @@
-from flask import request
+from flask import json
 from firebase_app import auth
-import requests
+from utils.general_utils import sign_in_test_user
 
 # no JWT sent
 def test_no_jwt_sent(client):
@@ -26,7 +26,7 @@ def test_jwt_valid_code(client):
         password="password123",
     )
 
-    response = sign_in_test_user()
+    response = sign_in_test_user(user)
     print(response)
 
     headers = {"authorization": response["idToken"]}
@@ -35,18 +35,8 @@ def test_jwt_valid_code(client):
     assert response.status_code == 200
 
 
-sign_in_url = "http://localhost:9099/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=fake-key"
-
-
-def sign_in_test_user():
-    response = requests.post(
-        sign_in_url, json={"email": "firstUser@user.com", "password": "password123"}
-    )
-    return response.json()
-
-
 # invalid token returns status code 401, and appropriate error message
-def test_jwt_valid_code(client):
+def test_jwt_invalid_code(client):
 
     users = auth.list_users()
 
@@ -59,7 +49,7 @@ def test_jwt_valid_code(client):
         password="password123",
     )
 
-    response = sign_in_test_user()
+    response = sign_in_test_user(user)
     print(response)
 
     headers = {"authorization": ""}
@@ -72,7 +62,7 @@ def test_jwt_valid_code(client):
 
 
 # invalid token returns status code 401, and appropriate error message
-def test_jwt_valid_code(client):
+def test_jwt_invalid_code_2(client):
 
     users = auth.list_users()
 
@@ -85,10 +75,98 @@ def test_jwt_valid_code(client):
         password="password123",
     )
 
-    response = sign_in_test_user()
+    response = sign_in_test_user(user)
     print(response)
 
     headers = {"authorization": "wrong"}
     response = client.get("/secret", headers=headers)
     assert response.json["msg"] == "Wrong number of segments in token: b'wrong'"
     assert response.status_code == 401
+
+
+# invalid user returns 401, and not granted access
+def test_jwt_super_secret_invalid(client):
+
+    users = auth.list_users()
+
+    for user in users.users:
+        auth.delete_user(user.uid)
+
+    # create new user
+    user = auth.create_user(
+        email="firstUser@user.com",
+        password="password123",
+    )
+
+    auth.set_custom_user_claims(user.uid, {"admin": False})
+
+    response = sign_in_test_user(user)
+
+    headers = {"authorization": response["idToken"]}
+    response = client.get("/superSecret", headers=headers)
+    assert response.json["access"] == "NOT granted"
+    assert response.status_code == 401
+
+
+# valid token returns status code 200, and admin access
+def test_jwt_super_secret(client):
+
+    users = auth.list_users()
+
+    for user in users.users:
+        auth.delete_user(user.uid)
+
+    # create new user
+    user = auth.create_user(
+        email="firstUser@user.com",
+        password="password123",
+    )
+
+    auth.set_custom_user_claims(user.uid, {"admin": True})
+
+    response = sign_in_test_user(user)
+
+    headers = {"authorization": response["idToken"]}
+    response = client.get("/superSecret", headers=headers)
+    assert response.json["access"] == "granted"
+    assert response.status_code == 200
+
+
+# valid token returns status code 200, and admin access
+def test_jwt_manage_user_access(client):
+
+    users = auth.list_users()
+
+    for user in users.users:
+        auth.delete_user(user.uid)
+
+    # create new users
+    user2 = auth.create_user(
+        email="secondUser@user.com",
+        password="password123",
+    )
+    auth.set_custom_user_claims(user2.uid, {"admin": False})
+
+    user = auth.create_user(
+        email="firstUser@user.com",
+        password="password123",
+    )
+    auth.set_custom_user_claims(user.uid, {"admin": True})
+
+    response = sign_in_test_user(user)
+
+    headers = {
+        "authorization": response["idToken"],
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+    }
+    response = client.patch(
+        "/manage_user_access",
+        data=json.dumps({"uid": user2.uid, "admin": "true"}),
+        headers=headers,
+    )
+
+    test_user = auth.get_user(user2.uid)
+
+    assert response.status_code == 204
+    assert test_user.custom_claims["admin"] == "true"

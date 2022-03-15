@@ -8,6 +8,14 @@ firebase_admin.initialize_app(cred)
 def validate_token(request):
     try:
         idToken = request.headers.get("Authorization")
-        auth.verify_id_token(idToken)
+        return auth.verify_id_token(idToken)
+    except Exception as err:
+        raise err
+
+
+def validate_access(decoded):
+    try:
+        return decoded["admin"]
+
     except Exception as err:
         raise err

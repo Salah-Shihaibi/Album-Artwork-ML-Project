@@ -22,6 +22,9 @@ if not config.has_section("MASTER"):
     config.set("conftest.py", "disable", "W0621")
     config.add_section("user_controller.py")
     config.set("user_controller.py", "disable", "W0703")
+    config.add_section("general_utils.py")
+    config.set("general_utils.py", "disable", "C0301")
+
 
 with open(".pylintrc", "w", encoding="ASCII") as cfg_file:
 
