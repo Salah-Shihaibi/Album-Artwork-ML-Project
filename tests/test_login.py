@@ -17,6 +17,8 @@ def test_users_login(client):
         "password": "wEShNQ2J2I",
         "email": "pchatwin0@blinklist.com",
     }
+    mimetype = "application/json"
+    headers = {"Content-Type": mimetype, "Accept": mimetype}
 
     response = client.post("/auth/login", data=json.dumps(user), headers=headers)
 

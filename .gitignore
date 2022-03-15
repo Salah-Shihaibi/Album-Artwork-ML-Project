@@ -2,6 +2,7 @@ venv/
 __pycache__
 .vscode/
 .pytest_cache/
+serviceAccount.json
 .pylintrc
 .git
 .DS_Store

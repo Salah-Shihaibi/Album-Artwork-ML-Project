@@ -1,5 +1,6 @@
-from flask_restful import Resource
 from flask import request
+from flask_restful import Resource
+from firebase_app import auth, validate_token, validate_access
 from error_handling.error_classes import (
     EmailInvalidError,
     PasswordTooShortError,
@@ -62,3 +63,48 @@ class Login(Resource):
             return cred, 200
         except CustomError as error:
             return error.response()
+
+
+class Secret(Resource):
+    @staticmethod
+    def get():
+        try:
+            validate_token(request)
+            return {"secret": "I have an identical twin, also called ed"}, 200
+
+        except Exception as err:
+            return {"msg": str(err)}, 401
+
+
+class Super_secret(Resource):
+    @staticmethod
+    def get():
+        try:
+            decoded_token = validate_token(request)
+            if validate_access(decoded_token):
+                return {"access": "granted"}, 200
+            return {"access": "NOT granted"}, 401
+
+        except Exception as err:
+            return {"msg": str(err)}, 401
+
+
+# admin: change user claims
+class Manage_User_Access(Resource):
+    @staticmethod
+    def patch():
+        try:
+            decoded_token = validate_token(request)
+            if validate_access(decoded_token):
+                auth.set_custom_user_claims(
+                    request.json["uid"], {"admin": request.json["admin"]}
+                )
+                return {}, 204
+            return {"msg": "Insufficient permissions"}, 403
+
+        except Exception as err:
+            return {"msg": str(err)}, 401
+
+
+# upload image to trianing set
+# admin: begin training

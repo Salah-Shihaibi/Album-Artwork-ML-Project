@@ -18,11 +18,16 @@ Install required libraries by running the command below:
 
 #### _Installation Requirements_
 
+Run the following command in root:
+
+`curl -sL https://firebase.tools | bash`
+
 - python >= 3.10.2
 - flask >= 2.0.3
 - pytest >= 7.0.1
 - flask_restful >= 0.3.9
 - psycopg2 >= 2.9.3
+- firebase-admin
 
 To run a local server run the following command:
 `bash ./start_flask.sh`
