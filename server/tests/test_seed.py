@@ -14,10 +14,10 @@ def test_db_tables():
     db = connect()
     cursor = db.cursor()
     query = """
-            SELECT EXISTS(SELECT 1 FROM information_schema.tables 
-            WHERE table_catalog='album_cover_db' AND 
-                    table_schema='public' AND 
-                    table_name='users'); 
+            SELECT EXISTS(SELECT 1 FROM information_schema.tables
+            WHERE table_catalog='album_cover_db' AND
+                    table_schema='public' AND
+                    table_name='users');
                     """
     cursor.execute(query)
     x = cursor.fetchone()

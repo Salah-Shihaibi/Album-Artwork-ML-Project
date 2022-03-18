@@ -1,0 +1,28 @@
+services:
+  server:
+    build: server
+    volumes:
+      - "./server:/app"
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
+
+# version: "3.9"
+# services:
+#   server:
+#     build: ./server
+#     volumes:
+#       - ./server:/app
+#     environment:
+#       FLASK_ENV: development

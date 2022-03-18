@@ -20,6 +20,12 @@ class Ping(Resource):
         return 200
 
 
+class Pong(Resource):
+    @staticmethod
+    def get():
+        return 201
+
+
 class Register(Resource):
     @staticmethod
     def post():
