@@ -8,6 +8,9 @@ To use this repo locally, select the code link from above and make a local copy 
 
 - `git clone [YOUR_LINK_HERE]`
 
+Change directory into server:
+- `cd ./server`
+
 Start a virtual environment with:
 
 - `source PATH/venv/bin/activate`
@@ -15,6 +18,8 @@ Start a virtual environment with:
 Install required libraries by running the command below:
 
 - `bash ./install_libraries.sh`
+
+
 
 #### _Installation Requirements_
 
@@ -43,6 +48,17 @@ Testing is completed with Pytest library. To run tests execute:
 Linting is preformed using pylint. To run the linter execute:
 
 - `bash ./run_linting`
+
+
+### _Containerisation_
+
+To create an image of the app, navigate to the root directory and execute the following in the terminal:
+
+- `docker composed build`
+
+To create a container:
+
+- `docker composed up`
 
 ### _Credits_
 
