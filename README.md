@@ -54,11 +54,11 @@ Linting is preformed using pylint. To run the linter execute:
 
 To create an image of the app, navigate to the root directory and execute the following in the terminal:
 
-- `docker composed build`
+- `docker compose build`
 
 To create a container:
 
-- `docker composed up`
+- `docker compose up`
 
 ### _Credits_
 
